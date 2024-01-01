@@ -7,20 +7,22 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: url;
-    font-family: 'JetBrains Mono', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 a{
     text-decoration: none;
-    color: black;
-    
+    color: black;  
 }
 body{
-    height: 100vh;
+    height: 500vh;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 nav{
     width: 100vw;
-    height: 20px;
+    height: 18px;
     background-color: transparent;
     display: flex;
     justify-content: space-between;
@@ -32,6 +34,7 @@ nav{
 nav *{
     font-size: var(--nav-font-size);
     font-weight: 500;
+    color: white;
 }
 
 nav .left-nav, .right-nav{
@@ -39,7 +42,6 @@ nav .left-nav, .right-nav{
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
-
 }
 
 nav::before{
@@ -51,6 +53,9 @@ nav::before{
     top:0;
     left: 0;
     outline: 1px solid white;
+    transform: scaleX(0);
+    animation: scrollbar linear;
+    animation-timeline: scroll();
 }
 
 .contact-btn{
@@ -96,7 +101,7 @@ nav a::after{
     height: 2px;
     bottom: -3px;
     left: 0;
-    background-color: black;
+    background-color: white;
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 500ms ease;
@@ -107,12 +112,20 @@ nav a:hover::after{
     transform: scaleX(1);
 }
 .hero-section{
-    background-image: url('./images/hero-image.jpg');
+    background-image: url('./images/971732.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    animation: image-scroll;
+    animation-timeline: view();
     
+}
+.hero-section *{
+    color: white;
 }
 .hero-wrapper{
     display: flex;
@@ -122,20 +135,21 @@ nav a:hover::after{
     gap: 3rem;
     margin-top: 120px;
     margin-left: 50px;
+    margin-right: 50px;
 }
 .hero-wrapper h1{
     font-family: 'Inter', sans-serif;
     font-size: 6rem;
     font-weight: 500;
-    color: black;
+    /* color: black; */
     word-spacing: 0.05rem; 
     letter-spacing: 0.04rem;
 }
 .hero-btn{
     width: 20rem;
     height: 5rem;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     border-radius: 9rem;
     text-align: center;
     display: flex;
@@ -149,8 +163,10 @@ nav a:hover::after{
 .hero-btn p{
     z-index: 10000;
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    margin-left: 1.5rem;
+    font-size: .8rem;
+    margin-left: 24px;
+    font-weight: 500;
+    color: black;
 }
 .hero-btn-grow{
     width: 2.8rem;
@@ -163,21 +179,64 @@ nav a:hover::after{
     bottom: 50%;
     right: 10px;
     transform: translateY(-50%);
-    /* z-index: -100000px; */
     border: none;
 }
-
+.hero-btn svg{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 3rem;
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 50px;
+    transition: all 0.5s linear; 
+    z-index: 2000000000000;
+}
+.hero-btn:hover svg{
+    width: 2rem;
+    height: 2rem;
+    padding: 0.3rem;
+    right: 1.7rem;
+    background-color: white;
+}
 .hero-btn:hover .hero-btn-grow{
     width: 101%;
     height: 101%;
     right: -1px;
 }
 
-@keyframes hero-scale{
-    0%{
-        width: 150%;
+.hero-sub-text{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.hero-sub-text > p{
+    font-size: 1.8rem;
+    line-height: 28px;
+}
+.explore{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 5rem;
+}
+.explore svg{
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: white;
+}
+
+@keyframes image-scroll{
+    to{
+    background-position:bottom;
     }
-    50%{
-        height: 150%;
+}
+@keyframes scrollbar{
+    to{
+    transform: scaleX(1);
     }
 }
