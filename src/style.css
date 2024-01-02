@@ -1,3 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 :root{
     --nav-font-size: 1rem;
     --primary-color: #FFF555;
@@ -30,13 +34,14 @@ nav{
     padding: 40px 50px;
     position: fixed;
     top:0;
+
 }
 nav *{
     font-size: var(--nav-font-size);
     font-weight: 500;
     color: white;
+    
 }
-
 nav .left-nav, .right-nav{
     display: flex;
     justify-content: space-between;
@@ -53,9 +58,9 @@ nav::before{
     top:0;
     left: 0;
     outline: 1px solid white;
-    transform: scaleX(0);
-    animation: scrollbar linear;
-    animation-timeline: scroll();
+    /* transform: scaleX(0); */
+    /* animation: scrollbar linear;
+    animation-timeline: scroll(); */
 }
 
 .contact-btn{
@@ -112,7 +117,7 @@ nav a:hover::after{
     transform: scaleX(1);
 }
 .hero-section{
-    background-image: url('./images/971732.jpg');
+    background-image: url('../images/971732.jpg'); 
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -230,6 +235,82 @@ nav a:hover::after{
     fill: white;
 }
 
+.features-section{
+    width: 100%;
+    padding: 4.5rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 30px;
+
+}
+.features-section h2{
+    font-family: 'inter',sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+}
+.features-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.features-img img{
+    width: 23rem;
+    max-width: 23rem;
+    border-radius: 10px;
+
+}
+.solutions-section{
+    width: 100%;
+    padding: 0 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+.solutions-section > p{
+    align-self: flex-start;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.solutions-detail{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* margin-top: 20px; */
+    border-top: 1px solid rgba(226, 219, 219, 0.651);
+    position: relative;
+}
+.solutions-detail h4{
+    font-weight: 400;
+    font-size: 4rem;
+    text-align: center;
+}
+.solutions-detail svg{
+    width: 2.2rem;
+    height: 2.2rem;
+    fill: black;
+}
+
+.solutions-detail::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    height: 0%;
+    transition: height .3s linear;
+
+}
+.solutions-detail:hover::after{
+    height: 100%;
+}
+.solutions-detail:hover{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 @keyframes image-scroll{
     to{
     background-position:bottom;
