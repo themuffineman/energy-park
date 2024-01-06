@@ -34,6 +34,7 @@ nav{
     padding: 40px 50px;
     position: fixed;
     top:0;
+    z-index: 1000;
 
 }
 nav *{
@@ -267,12 +268,17 @@ nav a:hover::after{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 3rem;
     align-items: center;
+    cursor: pointer;
   }
 .solutions-section > p{
     align-self: flex-start;
     font-size: 1rem;
     font-weight: 500;
+}
+.solutions-div{
+    width: 100%;
 }
 .solutions-detail{
     display: flex;
@@ -282,6 +288,7 @@ nav a:hover::after{
     /* margin-top: 20px; */
     border-top: 1px solid rgba(226, 219, 219, 0.651);
     position: relative;
+    transition: padding 0.5s ease;
 }
 .solutions-detail h4{
     font-weight: 400;
@@ -298,10 +305,14 @@ nav a:hover::after{
     content: '';
     position: absolute;
     bottom: 0;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%);
     width: 100%;
     background-color: var(--primary-color);
     height: 0%;
-    transition: height .3s linear;
+    transition: height .3s ease;
+    z-index: -1;
 
 }
 .solutions-detail:hover::after{
