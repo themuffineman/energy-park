@@ -270,7 +270,6 @@ nav a:hover::after{
     justify-content: space-between;
     gap: 3rem;
     align-items: center;
-    cursor: pointer;
   }
 .solutions-section > p{
     align-self: flex-start;
